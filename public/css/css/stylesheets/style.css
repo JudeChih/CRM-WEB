@@ -1,0 +1,763 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@keyframes rotateZ {
+  0% {
+    transform: rotateZ(-10deg);
+  }
+  12% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(10deg);
+  }
+  37% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg);
+  }
+  62% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(10deg);
+  }
+  87% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+  }
+}
+/* line 89, ../sass/style.scss */
+body {
+  font-family: 'Noto Sans TC','Josefin Sans', sans-serif;
+}
+/* line 91, ../sass/style.scss */
+body h1 {
+  font-size: 25px;
+}
+/* line 92, ../sass/style.scss */
+body h2 {
+  font-size: 20px;
+}
+/* line 93, ../sass/style.scss */
+body h3 {
+  font-size: 16px;
+}
+/* line 94, ../sass/style.scss */
+body p {
+  font-size: 14px;
+}
+/* line 95, ../sass/style.scss */
+body span {
+  font-size: 14px;
+}
+/* line 52, ../sass/style.scss */
+body .j_holiday h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 100, ../sass/style.scss */
+body .j_holiday .panel-body .btn_left, body .j_holiday .panel-body .btn_right {
+  font-size: 34px;
+  cursor: pointer;
+}
+/* line 107, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix {
+  margin-top: 10px;
+}
+/* line 109, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .week_group {
+  border: 1px solid #aaa;
+}
+/* line 111, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .week_group .week_days {
+  padding: 10px !important;
+  background-image: linear-gradient(to bottom, #999 0, #333 100%);
+  border: 1px solid #aaa;
+  color: #eeeeee;
+}
+/* line 118, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .week_group h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 124, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .check_password_dis {
+  display: none;
+}
+/* line 127, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box {
+  background-color: rgba(50, 50, 50, 0.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9999;
+}
+/* line 138, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  border-radius: 5px;
+  position: fixed;
+  width: 30%;
+  height: 30%;
+  padding: 2%;
+  background-color: #d9edf7;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* line 151, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password h3 {
+  margin-top: 0;
+  text-align: left;
+  color: #222222 !important;
+}
+/* line 156, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password button {
+  margin: 20px 5px 0 5px;
+}
+/* line 161, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group {
+  margin-top: 15px;
+}
+/* line 163, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .btn_dis {
+  display: none;
+}
+/* line 166, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .cancel_check, body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .reset_check {
+  margin-right: 15px;
+}
+/* line 170, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group {
+  border: 1px solid #aaa;
+}
+/* line 172, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_1 {
+  margin-left: 14.28571%;
+}
+/* line 175, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_2 {
+  margin-left: 28.57143%;
+}
+/* line 178, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_3 {
+  margin-left: 42.85714%;
+}
+/* line 181, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_4 {
+  margin-left: 57.14286%;
+}
+/* line 184, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_5 {
+  margin-left: 71.42857%;
+}
+/* line 187, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_6 {
+  margin-left: 85.71429%;
+}
+/* line 191, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting div {
+  cursor: pointer;
+}
+/* line 194, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting .select_day.set_holiday {
+  background-color: #ffffff;
+  color: #222222;
+}
+/* line 198, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting .select_day {
+  background-color: #FCEBF1;
+  color: #D0104C;
+}
+/* line 203, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group div {
+  border: 1px solid #aaa;
+  font-size: 30px;
+  text-align: left;
+}
+/* line 207, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group div.set_holiday {
+  background-color: #FCEBF1;
+  color: #D0104C;
+}
+/* line 212, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group span {
+  border: 1px solid #aaa;
+}
+/* line 216, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .input_area input {
+  display: none;
+}
+/* line 222, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .col-md-1, body .j_holiday .panel-body .clearfix .col-sm-1, body .j_holiday .panel-body .clearfix .col-xs-1 {
+  padding: 0px !important;
+  text-align: center;
+  width: 14.28571%;
+}
+/* line 231, ../sass/style.scss */
+body .survey_form_style {
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+/* line 234, ../sass/style.scss */
+body .survey_form_style .survey_title {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+/* line 238, ../sass/style.scss */
+body .survey_form_style .survey_form {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  border-radius: 5px;
+}
+/* line 241, ../sass/style.scss */
+body .survey_form_style .survey_form .survey_sati {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* line 244, ../sass/style.scss */
+body .survey_form_style .survey_form .survey_sati div {
+  text-align: center;
+}
+/* line 248, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group {
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 251, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group:nth-child(2n) {
+  background-color: #eeeeee;
+}
+/* line 253, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group:nth-child(2n).error {
+  background-color: #fee !important;
+}
+/* line 257, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group:nth-child(2n-1) {
+  background-color: #dddddd;
+}
+/* line 259, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group:nth-child(2n-1).error {
+  background-color: #fdd !important;
+}
+/* line 263, ../sass/style.scss */
+body .survey_form_style .survey_form .form-group .control-label {
+  text-align: center;
+}
+/* line 267, ../sass/style.scss */
+body .survey_form_style .survey_form #error_tip {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: red;
+}
+/* line 271, ../sass/style.scss */
+body .survey_form_style .survey_form #error_tip.error_tip {
+  display: none;
+}
+/* line 275, ../sass/style.scss */
+body .survey_form_style .survey_form .btn_style {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  padding-right: 30px;
+}
+/* line 280, ../sass/style.scss */
+body .survey_form_style .survey_form button {
+  padding-left: 30px;
+  padding-right: 30px;
+  background-image: linear-gradient(to bottom, #08aaf1 0, #0B346E 100%);
+  color: #ffffff;
+}
+/* line 284, ../sass/style.scss */
+body .survey_form_style .survey_form button:hover {
+  background-image: linear-gradient(to bottom, #999 0, #333 100%);
+  color: #ffffff;
+}
+/* line 288, ../sass/style.scss */
+body .survey_form_style .survey_form button:active {
+  background-image: none;
+  background-color: #08aaf1;
+}
+/* line 297, ../sass/style.scss */
+body .login_page .form_signin {
+  max-width: 330px;
+  padding: 30px !important;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+/* line 52, ../sass/style.scss */
+body .login_page .form_signin h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 304, ../sass/style.scss */
+body .login_page .form_signin h1 {
+  text-align: center;
+}
+/* line 307, ../sass/style.scss */
+body .login_page .form_signin .form_signin_heading {
+  margin-bottom: 10px;
+}
+/* line 310, ../sass/style.scss */
+body .login_page .form_signin .checkbox {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+/* line 314, ../sass/style.scss */
+body .login_page .form_signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px !important;
+  font-size: 16px;
+}
+/* line 322, ../sass/style.scss */
+body .login_page .form_signin .form-control:focus {
+  z-index: 2;
+}
+/* line 326, ../sass/style.scss */
+body .login_page .form_signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+/* line 331, ../sass/style.scss */
+body .login_page .form_signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* line 339, ../sass/style.scss */
+body .case_setting_content {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+}
+/* line 52, ../sass/style.scss */
+body .case_setting_content .panel-heading .case_setting_title h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 346, ../sass/style.scss */
+body .case_setting_content .panel-body {
+  padding: 0px !important;
+}
+/* line 348, ../sass/style.scss */
+body .case_setting_content .panel-body #extendForm, body .case_setting_content .panel-body #closeForm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 352, ../sass/style.scss */
+body .case_setting_content .panel-body .position_ab {
+  position: absolute;
+  right: 0;
+  top: -1px;
+}
+/* line 357, ../sass/style.scss */
+body .case_setting_content .panel-body .return_case_detail {
+  float: right;
+  margin-bottom: 0px !important;
+}
+/* line 361, ../sass/style.scss */
+body .case_setting_content .panel-body .nav_select {
+  margin: 8px 5px;
+}
+/* line 364, ../sass/style.scss */
+body .case_setting_content .panel-body label {
+  font-weight: 400;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  background-color: #08aaf1;
+  color: #ffffff;
+  transform-origin: 38px 40px;
+  transform: rotateZ(-10deg);
+}
+/* line 373, ../sass/style.scss */
+body .case_setting_content .panel-body label:before {
+  content: "";
+  position: absolute;
+  top: 29px;
+  left: 33px;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-width: 10px 5px 0px 5px;
+  border-top-color: #08aaf1;
+}
+/* line 384, ../sass/style.scss */
+body .case_setting_content .panel-body label:hover {
+  background-color: #d96c40;
+  animation: rotateZ .3s;
+}
+/* line 387, ../sass/style.scss */
+body .case_setting_content .panel-body label:hover:before {
+  border-top-color: #d96c40;
+}
+/* line 391, ../sass/style.scss */
+body .case_setting_content .panel-body label.hover {
+  background-color: #d96c40 !important;
+  animation: rotateZ .3s;
+}
+/* line 394, ../sass/style.scss */
+body .case_setting_content .panel-body label.hover:before {
+  border-top-color: #d96c40 !important;
+}
+/* line 399, ../sass/style.scss */
+body .case_setting_content .panel-body .tooltip-inner {
+  background-color: #d96c40;
+}
+/* line 402, ../sass/style.scss */
+body .case_setting_content .panel-body .tooltip-arrow {
+  border-top-color: #d96c40;
+}
+/* line 406, ../sass/style.scss */
+body .case_setting_content .panel-body .error input, body .case_setting_content .panel-body .error textarea, body .case_setting_content .panel-body .error select {
+  background-color: #fee;
+  border-color: #e99;
+}
+/* line 411, ../sass/style.scss */
+body .case_setting_content .panel-body a {
+  color: #222222;
+}
+/* line 413, ../sass/style.scss */
+body .case_setting_content .panel-body a.btn {
+  color: #ffffff;
+}
+/* line 417, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_ex {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #eeeeee;
+}
+/* line 422, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-top: 1px solid #dddddd;
+}
+/* line 426, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_detail:hover {
+  background-color: #81C1EF;
+  color: #ffffff;
+}
+/* line 430, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_detail.click_select {
+  background-color: #3D8AD4 !important;
+  color: #ffffff;
+}
+/* line 434, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_detail .save_btn_dis {
+  display: none;
+}
+/* line 437, ../sass/style.scss */
+body .case_setting_content .panel-body .case_setting_detail .btn-xs {
+  padding: 0 5px;
+}
+/* line 442, ../sass/style.scss */
+body .case_setting_content .check_password_dis {
+  display: none;
+}
+/* line 445, ../sass/style.scss */
+body .case_setting_content .show_box {
+  background-color: rgba(50, 50, 50, 0.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9999;
+}
+/* line 457, ../sass/style.scss */
+body .case_setting_content .check_password {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  border-radius: 5px;
+  position: fixed;
+  width: 30%;
+  height: 30%;
+  padding: 2%;
+  background-color: #d9edf7;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* line 470, ../sass/style.scss */
+body .case_setting_content .check_password h3 {
+  margin-top: 0;
+  text-align: left;
+  color: #222222 !important;
+}
+/* line 475, ../sass/style.scss */
+body .case_setting_content .check_password button {
+  margin: 20px 5px 0 5px;
+}
+/* line 478, ../sass/style.scss */
+body .case_setting_content .check_password .sales_plz {
+  text-align: center;
+}
+/* line 480, ../sass/style.scss */
+body .case_setting_content .check_password .sales_plz h3 {
+  text-align: center;
+}
+/* line 484, ../sass/style.scss */
+body .case_setting_content .check_password .check_error_dis {
+  display: none;
+}
+/* line 487, ../sass/style.scss */
+body .case_setting_content .check_password .password_plz {
+  text-align: center;
+}
+/* line 490, ../sass/style.scss */
+body .case_setting_content .check_password .check_success_dis {
+  display: none;
+}
+/* line 494, ../sass/style.scss */
+body .case_setting_content .case_setting_foot {
+  background-color: #d9edf7;
+}
+/* line 496, ../sass/style.scss */
+body .case_setting_content .case_setting_foot .check_case_dis {
+  display: none;
+}
+/* line 499, ../sass/style.scss */
+body .case_setting_content .case_setting_foot .wrap {
+  background-color: rgba(200, 200, 200, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* line 510, ../sass/style.scss */
+body .case_setting_content .case_setting_foot .check_case {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  border-radius: 5px;
+  width: 30%;
+  height: 30%;
+  padding: 2%;
+  background-color: #d9edf7;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* line 523, ../sass/style.scss */
+body .case_setting_content .case_setting_foot .check_case h3 {
+  margin-top: 0;
+}
+/* line 526, ../sass/style.scss */
+body .case_setting_content .case_setting_foot .check_case label {
+  margin-top: 20px;
+}
+/* line 530, ../sass/style.scss */
+body .case_setting_content .case_setting_foot form {
+  margin-bottom: 0;
+}
+/* line 532, ../sass/style.scss */
+body .case_setting_content .case_setting_foot form label, body .case_setting_content .case_setting_foot form button {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px 10px 5px 0;
+}
+/* line 535, ../sass/style.scss */
+body .case_setting_content .case_setting_foot form label input, body .case_setting_content .case_setting_foot form button input {
+  display: none;
+}
+/* line 543, ../sass/style.scss */
+body .j_form_style {
+  padding-top: 50px;
+}
+/* line 545, ../sass/style.scss */
+body .j_form_style img {
+  width: 100%;
+  cursor: pointer;
+}
+/* line 549, ../sass/style.scss */
+body .j_form_style .dis_style {
+  display: none;
+}
+/* line 552, ../sass/style.scss */
+body .j_form_style .j_title {
+  color: #222222;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+/* line 557, ../sass/style.scss */
+body .j_form_style .j_form {
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  border-radius: 5px 5px 0 0;
+  padding: 30px 0 15px 0;
+}
+/* line 561, ../sass/style.scss */
+body .j_form_style .j_form .form-control:focus {
+  border-color: #fff;
+}
+/* line 564, ../sass/style.scss */
+body .j_form_style .j_form label {
+  font-weight: 400;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  background-color: #08aaf1;
+  color: #ffffff;
+  transform-origin: 38px 40px;
+  transform: rotateZ(-10deg);
+}
+/* line 573, ../sass/style.scss */
+body .j_form_style .j_form label:before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 33px;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-width: 10px 5px 0px 5px;
+  border-top-color: #08aaf1;
+}
+/* line 584, ../sass/style.scss */
+body .j_form_style .j_form label:hover {
+  background-color: #d96c40;
+  animation: rotateZ .3s;
+}
+/* line 587, ../sass/style.scss */
+body .j_form_style .j_form label:hover:before {
+  border-top-color: #d96c40;
+}
+/* line 592, ../sass/style.scss */
+body .j_form_style .j_form label.hover {
+  background-color: #d96c40 !important;
+  animation: rotateZ .3s;
+}
+/* line 595, ../sass/style.scss */
+body .j_form_style .j_form label.hover:before {
+  border-top-color: #d96c40 !important;
+}
+/* line 599, ../sass/style.scss */
+body .j_form_style .j_form input, body .j_form_style .j_form select, body .j_form_style .j_form textarea {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 10px 2px rgba(15, 37, 64, 0.3) inset;
+  background-color: #eeeeee;
+}
+/* line 604, ../sass/style.scss */
+body .j_form_style .j_form h3 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #dddddd;
+}
+/* line 609, ../sass/style.scss */
+body .j_form_style .j_form .tooltip-inner {
+  background-color: #d96c40;
+}
+/* line 612, ../sass/style.scss */
+body .j_form_style .j_form .tooltip-arrow {
+  border-top-color: #d96c40;
+}
+/* line 616, ../sass/style.scss */
+body .j_form_style .j_form .error input, body .j_form_style .j_form .error textarea, body .j_form_style .j_form .error select {
+  background-color: #fee;
+  border-color: #e99;
+}
+/* line 621, ../sass/style.scss */
+body .j_form_style .j_form .btn_p_r_b {
+  padding: 15px 30px 15px 15px;
+}
+/* line 623, ../sass/style.scss */
+body .j_form_style .j_form .btn_p_r_b button {
+  background-image: linear-gradient(to bottom, #08aaf1 0, #0B346E 100%);
+  color: #ffffff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/* line 627, ../sass/style.scss */
+body .j_form_style .j_form .btn_p_r_b button:hover {
+  background-image: linear-gradient(to bottom, #999 0, #333 100%);
+}
+/* line 630, ../sass/style.scss */
+body .j_form_style .j_form .btn_p_r_b button:active {
+  background-image: none;
+  background-color: #08aaf1;
+}
+/* line 640, ../sass/style.scss */
+body #des > div {
+  padding: 30px !important;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
+  background-color: #dddddd;
+  margin-bottom: 30px;
+}
+/* line 647, ../sass/style.scss */
+body #des p {
+  padding-left: 15px;
+}
+/* line 652, ../sass/style.scss */
+body .p_l_r {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* line 655, ../sass/style.scss */
+body .p_l_r_dis {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 658, ../sass/style.scss */
+body .p_all_dis {
+  padding: 0px !important;
+}
+/* line 661, ../sass/style.scss */
+body .p_t {
+  padding-top: 3px;
+}
+/* line 664, ../sass/style.scss */
+body .m_b {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  /* line 669, ../sass/style.scss */
+  body .p_r {
+    padding-right: 30px;
+  }
+  /* line 672, ../sass/style.scss */
+  body .p_l {
+    padding-left: 30px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 677, ../sass/style.scss */
+  body .j_form_style, body #des, body .survey_form_style {
+    padding: 0px !important;
+  }
+  /* line 680, ../sass/style.scss */
+  body .btn_right, body .btn_left {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

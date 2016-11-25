@@ -1,0 +1,685 @@
+$companyColor:
+	#08aaf1 //1
+	#0B346E //2
+	#d96c40 //3
+	#222222 //4
+	#ffffff //5
+	#eeeeee //6
+	#dddddd //7
+	#7B98D0 //8
+	#888888 //9
+	;
+$holidayColor:
+	#FCEBF1 //1
+	#D0104C //2
+	;
+$customerColor:
+	#d9edf7 //1
+	#81C1EF //2
+	#3D8AD4 //3
+	;
+
+$companyColorGradient:
+	linear-gradient(to bottom,#08aaf1 0, #0B346E 69px,#0B346E 100%) //1
+	linear-gradient(to bottom,#08aaf1 0, #0B346E 100%) //2
+	linear-gradient(to bottom,#e88042 0, #d96c40 100%) //3
+	linear-gradient(to bottom,#3c3c3c 0, #222222 100%) //4
+	linear-gradient(to bottom,#999 0, #333 100%);//5
+// custom settings
+$font_h1:25px;
+$font_h2:20px;
+$font_h3:16px;
+$font_p:14px;
+$font_span:14px;
+$head_height:50px;
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+@mixin borderRadius($num){
+	@if $num == top { border-radius:5px 5px 0 0;}
+  @else if $num == bottom { border-radius:0 0 5px 5px;}
+  @else if $num == small { border-radius:3px;}
+  @else { border-radius:5px;}
+}
+@mixin shadow($type){
+	@if $type == y { box-shadow: 0px 3px 3px rgba(15,37,64,0.6);}
+	@else if $type == inset { box-shadow: 0px 0px 5px rgba(15,37,64,1) inset;}
+	@else if $type == inset_light { box-shadow: 0px 0px 10px 2px rgba(15,37,64,0.3) inset;}
+	@else { box-shadow: 0px 0px 10px rgba(15,37,64,0.6);}
+}
+@mixin h1_reset{
+	h1{
+		margin-top:0;
+		margin-bottom:0;
+	}
+}
+@mixin text_align($type){
+	@if $type == center {text-align:center;}
+	@else if $type == left {text-align:left;}
+	@else if $type == right {text-align:right;}
+}
+@mixin padding_setting($type,$num){
+	@if $type == t_b {padding-top:$num * 10px;padding-bottom:$num * 10px;}
+	@else if $type == l_r {padding-left:$num * 10px;padding-right:$num * 10px;}
+	@else if $type == all {padding:$num * 10px !important;}
+}
+@mixin fixed_center{
+	position:fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin:auto;
+	z-index:9999;
+}
+
+@keyframes rotateZ {
+	0%{transform:rotateZ(-10deg);}
+	12%{transform:rotateZ(0deg);}
+	25%{transform:rotateZ(10deg);}
+	37%{transform:rotateZ(0deg);}
+	50%{transform:rotateZ(-10deg);}
+	62%{transform:rotateZ(0deg);}
+	75%{transform:rotateZ(10deg);}
+	87%{transform:rotateZ(0deg);}
+	100%{transform:rotateZ(-10deg);}
+}
+
+body{
+	font-family: 'Noto Sans TC','Josefin Sans', sans-serif;
+	h1{	font-size:$font_h1;	}
+	h2{	font-size:$font_h2;	}
+	h3{	font-size:$font_h3;	}
+	p{ font-size:$font_p; }
+	span{	font-size:$font_span;	}
+	////j_table divStyle////////////////////////////////////////////////////////
+	.j_holiday{
+		@include h1_reset;
+		.panel-body{
+			.btn_left,.btn_right{
+				font-size:34px;
+				cursor:pointer;
+				i{
+					// margin-top:7px;
+				}
+			}
+			.clearfix{
+				margin-top:10px;
+				.week_group{
+					border:1px solid #aaa;
+					.week_days{
+						@include padding_setting(all,1);
+
+						background-image:nth($companyColorGradient,5);
+						border:1px solid #aaa;
+						color:nth($companyColor,6);
+					}
+					h3{
+						margin-top:0;
+						margin-bottom:0;
+					}
+				}
+				form[name="holiday_form"]{
+					.check_password_dis{
+						display:none;
+					}
+					.show_box{
+						background-color:rgba(50,50,50,0.9);
+						width: 100vw;
+						height:100vh;
+						position:fixed;
+						top: 0;
+						right: 0;
+						left: 0;
+						bottom: 0;
+						margin:auto;
+						z-index:9999;
+						.check_password{
+							@include shadow(none);
+							@include borderRadius(none);
+							position:fixed;
+							width: 30%;
+							height: 30%;
+							padding:2%;
+							background-color:nth($customerColor,1);
+							top: 0;
+							right: 0;
+							left: 0;
+							bottom: 0;
+							margin:auto;
+							h3{
+								margin-top:0;
+								@include text_align(left);
+								color:nth($companyColor,4) !important;
+							}
+							button{
+								margin:20px 5px 0 5px;
+							}
+						}
+					}
+					.btn_group{
+						margin-top:15px;
+						.btn_dis{
+							display:none;
+						}
+						.cancel_check,.reset_check{
+							margin-right:15px;
+						}
+					}
+					.day_group{
+						border:1px solid #aaa;
+						.m_l_1{
+							margin-left:((100%)/7);
+						}
+						.m_l_2{
+							margin-left:((100%*2)/7);
+						}
+						.m_l_3{
+							margin-left:((100%*3)/7);
+						}
+						.m_l_4{
+							margin-left:((100%*4)/7);
+						}
+						.m_l_5{
+							margin-left:((100%*5)/7);
+						}
+						.m_l_6{
+							margin-left:((100%*6)/7);
+						}
+						&.editting{
+							div{
+								cursor:pointer;
+							}
+							.select_day.set_holiday{
+								background-color:nth($companyColor,5);
+								color:nth($companyColor,4);
+							}
+							.select_day{
+								background-color:nth($holidayColor,1);
+								color:nth($holidayColor,2);
+							}
+						}
+						div{
+							border:1px solid #aaa;
+							font-size:30px;
+							text-align:left;
+							&.set_holiday{
+								background-color:nth($holidayColor,1);
+								color:nth($holidayColor,2);
+							}
+						}
+						span{
+							border:1px solid #aaa;
+						}
+						.input_area{
+							input{
+								display:none;
+							}
+						}
+					}
+				}
+				.col-md-1,.col-sm-1,.col-xs-1{
+					@include padding_setting(all,0);
+					text-align:center;
+					width:(100% / 7);
+				}
+			}
+		}
+	}
+	////survey form 滿意度調查表////////////////////////////////////////
+	.survey_form_style{
+		padding-top:50px;
+		margin-bottom:30px;
+		.survey_title{
+			margin-top:15px;
+			margin-bottom:25px;
+		}
+		.survey_form{
+			@include shadow(none);
+			@include borderRadius(none);
+			.survey_sati{
+				margin-bottom:10px;
+				margin-top:10px;
+				div{
+					text-align:center;
+				}
+			}
+			.form-group{
+				margin-bottom:0;
+				@include padding_setting(t_b,1);
+				&:nth-child(2n){
+					background-color:nth($companyColor,6);
+					&.error{
+						background-color:#fee !important;
+					}
+				}
+				&:nth-child(2n-1){
+					background-color:nth($companyColor,7);
+					&.error{
+						background-color:#fdd !important;
+					}
+				}
+				.control-label{
+					@include text_align(center);
+				}
+			}
+	  	#error_tip{
+	  		@include padding_setting(t_b,1);;
+	  		@include text_align(center);
+	  		color:red;
+				&.error_tip{
+					display:none;
+				}
+	  	}
+			.btn_style{
+				@include padding_setting(t_b,2);
+				@include text_align(center);
+				padding-right:30px;
+			}
+			button{
+				@include padding_setting(l_r,3);
+				background-image:nth($companyColorGradient,2);
+				color:nth($companyColor,5);
+				&:hover{
+					background-image:nth($companyColorGradient,5);
+					color:nth($companyColor,5);
+				}
+				&:active{
+					background-image:none;
+					background-color:nth($companyColor,1);
+				}
+			}
+		}
+	}
+	////login 登入////////////////////////////////////////////////
+	.login_page{
+		.form_signin {
+		  max-width: 330px;
+		  @include padding_setting(all,3);
+		  margin: 0 auto;
+			background-color:nth($companyColor,6);
+			@include h1_reset;
+			@include borderRadius(none);
+			h1{
+				@include text_align(center);
+			}
+			.form_signin_heading{
+				margin-bottom: 10px;
+			}
+			.checkbox{
+				margin-bottom: 10px;
+				font-weight: normal;
+			}
+			.form-control{
+				position: relative;
+			  height: auto;
+			  -webkit-box-sizing: border-box;
+			     -moz-box-sizing: border-box;
+			          box-sizing: border-box;
+			  @include padding_setting(all,1);
+			  font-size: 16px;
+			  &:focus {
+				  z-index: 2;
+				}
+			}
+			input[type="email"] {
+			  margin-bottom: -1px;
+			  border-bottom-right-radius: 0;
+			  border-bottom-left-radius: 0;
+			}
+			input[type="password"] {
+			  margin-bottom: 10px;
+			  border-top-left-radius: 0;
+			  border-top-right-radius: 0;
+			}
+		}
+	}
+	////case setting 設定系列(客戶連結,負責業務,接案工程師,支援工程師)////
+	.case_setting_content{
+		@include shadow(none);
+		.panel-heading{
+			.case_setting_title{
+				@include h1_reset;
+			}
+		}
+		.panel-body{
+			@include padding_setting(all,0);
+			#extendForm,#closeForm{
+				margin-top:20px;
+				margin-bottom:20px;
+			}
+			.position_ab{
+				position:absolute;
+				right: 0;
+    		top: -1px;
+			}
+			.return_case_detail{
+				float:right;
+				margin-bottom:0px !important;
+			}
+			.nav_select{
+				margin:8px 5px;
+			}
+			label{
+				font-weight:400;
+				@include padding_setting(t_b,.5);
+				@include padding_setting(l_r,1);
+				@include borderRadius(small);
+				background-color:nth($companyColor,1);
+				color:nth($companyColor,5);
+				transform-origin: 38px 40px;
+				transform:rotateZ(-10deg);
+				&:before{
+					content:"";
+				  position:absolute;
+				  top:29px;
+				  left:33px;
+				  width:0px;
+				  height:0px;
+				  border:5px solid transparent;
+				  border-width:10px 5px 0px 5px;
+				  border-top-color:nth($companyColor,1);
+				}
+				&:hover{
+					background-color:nth($companyColor,3);
+					animation:rotateZ .3s;
+					&:before{
+						border-top-color:nth($companyColor,3);
+					}
+				}
+				&.hover{
+					background-color:nth($companyColor,3) !important;
+					animation:rotateZ .3s;
+					&:before{
+						border-top-color:nth($companyColor,3) !important;
+					}
+				}
+			}
+			.tooltip-inner{
+				background-color:nth($companyColor,3);
+			}
+			.tooltip-arrow{
+				border-top-color:nth($companyColor,3);
+			}
+			.error{
+		    input,textarea,select{
+		    	background-color:#fee;
+		    	border-color:#e99;
+		    }
+		  }
+			a{
+				color:nth($companyColor,4);
+				&.btn{
+					color:nth($companyColor,5);
+				}
+			}
+			.case_setting_ex{
+				@include padding_setting(t_b,1);;
+				@include text_align(center);
+				background-color:nth($companyColor,6);
+			}
+			.case_setting_detail{
+				@include padding_setting(t_b,1);;
+				@include text_align(center);
+				border-top:1px solid nth($companyColor,7);
+				&:hover{
+					background-color:nth($customerColor,2);
+					color:nth($companyColor,5);
+				}
+				&.click_select{
+					background-color:nth($customerColor,3) !important;
+					color:nth($companyColor,5);
+				}
+				.save_btn_dis{
+					display:none;
+				}
+				.btn-xs{
+					padding:0 5px;
+				}
+			}
+		}
+		.check_password_dis{
+			display:none;
+		}
+		.show_box{
+			background-color:rgba(50,50,50,0.9);
+			width: 100vw;
+			height:100vh;
+			position:fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			margin:auto;
+			z-index:9999;
+		}
+		.check_password{
+			@include shadow(none);
+			@include borderRadius(none);
+			position:fixed;
+			width: 30%;
+			height: 30%;
+			padding:2%;
+			background-color:nth($customerColor,1);
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			margin:auto;
+			h3{
+				margin-top:0;
+				@include text_align(left);
+				color:nth($companyColor,4) !important;
+			}
+			button{
+				margin:20px 5px 0 5px;
+			}
+			.sales_plz{
+				@include text_align(center);
+				h3{
+					@include text_align(center);
+				}
+			}
+			.check_error_dis{
+				display: none;
+			}
+			.password_plz{
+				@include text_align(center);
+			}
+			.check_success_dis{
+				display:none;
+			}
+		}
+		.case_setting_foot{
+			background-color:nth($customerColor,1);
+			.check_case_dis{
+				display:none;
+			}
+			.wrap{
+				background-color:rgba(200,200,200,0.5);
+				width: 100vw;
+				height:100vh;
+				position:fixed;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				margin:auto;
+			}
+			.check_case{
+				@include shadow(none);
+				@include borderRadius(none);
+				width: 30%;
+				height: 30%;
+				padding:2%;
+				background-color:nth($customerColor,1);
+				position:fixed;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				margin:auto;
+				h3{
+					margin-top:0;
+				}
+				label{
+					margin-top:20px;
+				}
+			}
+			form{
+				margin-bottom:0;
+				label,button{
+					@include padding_setting(l_r,1.5);
+					margin:5px 10px 5px 0;
+					input{
+						display:none;
+					}
+				}
+			}
+		}
+	}
+	////support service & apply for test/////////////////////////////////
+	.j_form_style{
+		padding-top:50px;
+		img{
+			width:100%;
+			cursor:pointer;
+		}
+		.dis_style{
+			display:none;
+		}
+		.j_title{
+			color:nth($companyColor,4);
+			margin-top:15px;
+			margin-bottom:25px;
+		}
+		.j_form{
+			@include shadow(none);
+			@include borderRadius(top);
+			padding:30px 0 15px 0;
+			.form-control:focus{
+				border-color:#fff;
+			}
+			label{
+				font-weight:400;
+				@include padding_setting(t_b,.5);
+				@include padding_setting(l_r,1);
+				@include borderRadius(small);
+				background-color:nth($companyColor,1);
+				color:nth($companyColor,5);
+				transform-origin: 38px 40px;
+				transform:rotateZ(-10deg);
+				&:before{
+					content:"";
+				  position:absolute;
+				  top:30px;
+				  left:33px;
+				  width:0px;
+				  height:0px;
+				  border:5px solid transparent;
+				  border-width:10px 5px 0px 5px;
+				  border-top-color:nth($companyColor,1);
+				}
+				&:hover{
+					background-color:nth($companyColor,3);
+					animation:rotateZ .3s;
+					&:before{
+						border-top-color:nth($companyColor,3);
+					}
+				}
+			}
+			label.hover{
+				background-color:nth($companyColor,3) !important;
+				animation:rotateZ .3s;
+				&:before{
+					border-top-color:nth($companyColor,3) !important;
+				}
+			}
+			input,select,textarea{
+				border-color:nth($companyColor,5);
+				@include shadow(inset_light);
+				background-color:nth($companyColor,6);
+			}
+			h3{
+				margin-bottom:20px;
+				padding-bottom: 10px;
+				border-bottom:3px solid nth($companyColor,7);
+			}
+			.tooltip-inner{
+				background-color:nth($companyColor,3);
+			}
+			.tooltip-arrow{
+				border-top-color:nth($companyColor,3);
+			}
+			.error{
+		    input,textarea,select{
+		    	background-color:#fee;
+		    	border-color:#e99;
+		    }
+		  }
+			.btn_p_r_b{
+				padding:15px 30px 15px 15px;
+				button{
+					background-image:nth($companyColorGradient,2);
+					color:nth($companyColor,5);
+					@include padding_setting(l_r,3);
+					&:hover{
+						background-image:nth($companyColorGradient,5);
+					}
+					&:active{
+						background-image:none;
+						background-color:nth($companyColor,1);
+					}
+				}
+			}
+		}
+	}
+	//////////////////////////////////
+	#des{
+		&>div{
+			@include padding_setting(all,3);
+			@include borderRadius(bottom);
+			@include shadow(none);
+			background-color:nth($companyColor,7);
+			margin-bottom:30px;
+		}
+		p{
+			padding-left:15px;
+		}
+	}
+	////general settings//////////////////////////////
+	.p_l_r{
+		@include padding_setting(l_r,1.5);
+	}
+	.p_l_r_dis{
+		@include padding_setting(l_r,0);
+	}
+	.p_all_dis{
+		@include padding_setting(all,0);
+	}
+	.p_t{
+		padding-top:3px;
+	}
+	.m_b{
+		margin-bottom:20px;
+	}
+	////RWD settings//////////////////////////////
+	@media only screen and (min-width:768px) {
+		.p_r{
+			padding-right:30px;
+		}
+		.p_l{
+			padding-left:30px;
+		}
+	}
+	@media only screen and (max-width:767px) {
+		.j_form_style,#des,.survey_form_style{
+			@include padding_setting(all,0);
+		}
+		.btn_right,.btn_left{
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+}
