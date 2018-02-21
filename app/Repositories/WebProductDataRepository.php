@@ -25,6 +25,18 @@ class WebProductDataRepository {
     }
 
     /**
+     * 取得頁面「技術支援」的下拉選單資料
+     * @return type
+     */
+    public function getDropDownListDataSupport() {
+        return $this->model
+                        ->where('isflag', '=', '1')
+                        ->select('pd_id', 'pd_name', 'pg_id')
+                        ->orderBy('pd_id')
+                        ->get();
+    }
+
+    /**
      * 取得所有資料
      * @return type
      */

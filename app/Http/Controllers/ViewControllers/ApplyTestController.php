@@ -1,53 +1,70 @@
 <?php
+
 namespace App\Http\Controllers\ViewControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\WebApplyRepository;
+use \Illuminate\Support\Facades\View;
 
-class ApplyTestController extends Controller
-{
-		protected $webapplyrepository;
+//use App\Repositories\WebApplyTestRepository;
+
+class ApplyTestController extends Controller {
+
+    protected $repository;
 
     /**
      *  constructor.
      *
-     * @param
+     * @param 
      */
-    public function __construct(WebApplyRepository $webapplyrepository) {
-        $this->webapplyrepository = $webapplyrepository;
+    public function __construct(\App\Repositories\WebApplyTestRepository $repository) {
+        $this->repository = $repository;
     }
 
     /**
-     * View [ ApplyTest ] Route
+     * View [ ApplyService ] Route
      * @return type
      */
-    function applyTest() {
+    function applyService() {
 
-        // $problemlist = \App\Repositories\WebProblemCategoryRepository::withNew()->getProblemCategory();
+        $productgroup = \App\Repositories\WebProductGroupRepository::withNew()->getApplyTestGroup();
+        $productdata = \App\Repositories\WebProductDataRepository::withNew()->getDropDownListDataSupport();
 
-        $grouplist = \App\Repositories\WebProductGroupRepository::withNew()->getPluckSupportCaseGroup();
 
-        // $data = ['problem' => $problemlist, 'productgroup' => $grouplist];
-
-        // return view('applytest.applyfortest', compact('problemlist', 'grouplist', 'problemsublist'));
-        return view('applytest.applyfortest', compact('grouplist'));
-    		// return view('/applytest/applyfortest');
+        return View::make('applytest.apply_service', compact('productgroup', 'productdata'));
     }
 
     /**
-   	* View [ ApplyTest ] Action
-   	* @param Request $request
-   	* @return type
-   	*/
-    function createApplyCase(Request $request) {
+     * View [ ApplyService ] Action
+     * @param Request $request
+     * @return type
+     */
+    function createApplyTestData(Request $request) {
 
-        $case_number = $this->webapplyrepository->createNewCase($request->all());
+        if (!isset($request['g-recaptcha-response']) || !$this->checkreCAPTCHA($request['g-recaptcha-response'])) {
+            return redirect()->back()->withInput()->withErrors(['error' => '請輸入驗證碼！！']);
+        }
 
-        if (isset($case_number)) {
-            return view('applytest.applysuccess', compact('case_number'));
+
+        $primarykey = $this->repository->create($request->all());
+
+        if (isset($primarykey)) {
+            return View::make('applytest.apply_success');
         }
 
         return redirect()->back()->withInput()->withErrors(['error' => '系統異常請稍候再試！！']);
     }
+
+    function checkreCAPTCHA($recaptcha) {
+
+        $Response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LcBIA4UAAAAAI8UJvYjWeOOOmAyhU-KgKpSvYl4&response=' . $recaptcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+
+        $reponse = json_decode($Response);
+
+        if ($reponse->success) {
+            return true;
+        }
+        return false;
+    }
+
 }

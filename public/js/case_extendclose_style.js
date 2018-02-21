@@ -42,10 +42,19 @@ $(function(){
 			}
 	});
 
+	// 判別email格式是否正確
+	function checkEmail(remail) {
+		if(remail.search(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/)!=-1){
+		  return true;
+		}else{
+		  return false;
+		}
+	}
+
 	// 右下角按鈕的功能  先判斷表單是否填寫完成再跳小視窗輸入密碼
 	$('[name="form_send_check"]').on('click', function () {
 		var isFormValid = true;
-		$('form').find('input,select,textarea').each(function(){
+		$('form').find('textarea').each(function(){
       var $this = $(this);
       // 使用 trim 把空白去除
       if ($.trim($this.val()).length === 0){
@@ -66,7 +75,7 @@ $(function(){
 					var isCheckFileSize = true;  //是否檢查檔案大小
 					var FileSizeLimit = 20*1024*1024;  //上傳上限20M，單位:byte
 					var f = document.closeForm;
-					var re = /\.(tar.gz|rar|zip)$/i;	//允許的副檔名
+					var re = /\.(png|jpg|pdf)$/i;	//允許的副檔名
 					var name = file.name;		//name=檔案名稱
 					var size = file.size;		//size=檔案大小
 
@@ -86,6 +95,24 @@ $(function(){
       	}
       }
     });
+    if(isFormValid){
+	    $('form').find('.mail_input').each(function(){
+	    	var mail_val = $(this).val();
+	    	if(mail_val!=''){
+	    		var mail_val_array = mail_val.split(";");
+		    	var len = mail_val_array.length;
+		  		for(var i=0;i<len;i++){
+		    		isFormValid = checkEmail(mail_val_array[i]);
+		    		if(!isFormValid){
+		    			break;
+		    		}
+		    	}
+		    	if(!isFormValid){
+		    		$(this).tooltip('show').closest('div').addClass('error');
+		    	}
+	    	}
+	    })
+  	}
     if(isFormValid){
     	$('.show_box').removeClass('check_password_dis');
 				$('.password_plz').removeClass('check_success_dis');

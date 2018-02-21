@@ -25,6 +25,19 @@ class WebProductGroupRepository {
     }
 
     /**
+     * 取得頁面「技術支援」的下拉選單資料
+     * @return type
+     */
+    public function getDropDownListDataSupport() {
+        return $this->model
+                        ->where('isflag', '=', '1')
+                        ->where('pg_type', '=', '1')
+                        ->select('pg_id', 'pg_name', 'pg_code', 'pg_type')
+                        ->orderBy('pg_id')
+                        ->get();
+    }
+
+    /**
      * 取得所有資料
      * @return type
      */
@@ -62,7 +75,12 @@ class WebProductGroupRepository {
      * @return type
      */
     public function getApplyTestGroup() {
-        return $this->model->where('pg_type', '2')->where('isflag', '1')->pluck('pg_name', 'pg_id');
+        return $this->model
+                        ->where('isflag', '=', '1')
+                        ->where('pg_type', '=', '2')
+                        ->select('pg_id', 'pg_name', 'pg_code', 'pg_type')
+                        ->orderBy('pg_id')
+                        ->get();
     }
 
     /**

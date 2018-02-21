@@ -15,14 +15,20 @@ $title = "設定支援工程師";
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_search">
             {{ Form::open(['action'=>'ViewControllers\SupportCaseQueryController@detailActionSupportEngineer','class'=>'navbar-form navbar-left']) }}
             {{ Form::hidden('support_id', $support_id) }}
+            {{ Form::hidden('actiontype', 'search') }}
             {{ Form::text('querycondition' , isset($querycondition) ? $querycondition : '',['class'=>'form-control']  ) }}
             {{ Form::button('查詢',['name' => 'submit','type'=>'submit' ,'class'=>'btn btn-info' ,'value'=>'search']) }}
             {{ Form::close() }}
-            {{ Form::open(['action' => array('ViewControllers\SupportCaseController@supportCaseDetail'),'class'=>'return_case_detail']) }}
+            {{ Form::open(['action' => array('ViewControllers\SupportCaseQueryController@detailActionSupportEngineer'),'class'=>'return_case_detail']) }}
             {{ Form::hidden('support_id', $support_id) }}
-            {{ Form::button('返回',['type'=>'submit' ,'class'=>'btn btn-info navbar-right nav_select']) }}
-            {{ Form::close() }}
             {{ Form::button('確認',['name' => 'form_send_check' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'form_send_check']) }}
+            {{ Form::close() }}
+
+
+            {{ Form::open(['action'=>'ViewControllers\SupportCaseQueryController@redirectBack','class'=>'return_case_detail']) }}
+            {{ Form::hidden('support_id', $support_id) }}
+            {{ Form::submit('返回',['name' => 'back' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'back']) }} 
+            {{ Form::close() }}
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_ex">
             <div class="col-md-6 col-sm-6 col-xs-6">工程師名稱</div>
@@ -30,14 +36,14 @@ $title = "設定支援工程師";
         </div>
         @foreach ($engineerlist as $case)
         {{ Form::open(['action' => array('ViewControllers\SupportCaseQueryController@detailActionSupportEngineer')]) }}
-            <div class="case_setting_detail col-md-12 col-sm-12 col-xs-12">
-                {{ Form::hidden('cd_id', $case->ud_id) }}
-                {{ Form::hidden('support_id', $support_id) }}
-                {{ Form::hidden('type', 'save') }}
-                {{ Form::hidden('password', 'password') }}
-                <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->ud_cname }}</div>
-                <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->dep_ch }}</div>
-            </div>
+        <div class="case_setting_detail col-md-12 col-sm-12 col-xs-12">
+            {{ Form::hidden('ud_id', $case->ud_id) }}
+            {{ Form::hidden('support_id', $support_id) }}
+            {{ Form::hidden('actiontype', 'save') }}
+            {{ Form::hidden('password', 'password') }}
+            <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->ud_cname }}</div>
+            <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->dep_ch }}</div>
+        </div>
         {{ Form::close() }}
         @endforeach
     </div>

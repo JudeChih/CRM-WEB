@@ -25,6 +25,32 @@ class WebProblemCategoryRepository {
     }
 
     /**
+     * 取得頁面「技術支援」的下拉選單資料
+     * @return type
+     */
+    public function getDropDownListDataSupport() {
+        return $this->model
+                        ->whereNull('problem_parent')
+                        ->where('isflag', '=', '1')
+                        ->select('pg_id', 'problem_id', 'problem_name', 'problem_parent')
+                        ->orderBy('pg_id', 'problem_id')
+                        ->get();
+    }
+
+    /**
+     * 取得頁面「技術支援」的下拉選單資料
+     * @return type
+     */
+    public function getSubDropDownListDataSupport() {
+        return $this->model
+                        ->whereNotNull('problem_parent')
+                        ->where('isflag', '=', '1')
+                        ->select('pg_id', 'problem_id', 'problem_name', 'problem_parent')
+                        ->orderBy('pg_id', 'problem_id')
+                        ->get();
+    }
+
+    /**
      * 取得所有資料
      * @return type
      */
@@ -48,6 +74,21 @@ class WebProblemCategoryRepository {
      */
     public function getDataBy($key, $value) {
         return $this->model->where($key, $value);
+    }
+
+    public function getPluckProblemCategory($pg_id) {
+        return $this->model
+                        ->where('problem_parent', '=', '')
+                        ->where('pg_id', '=', $pg_id)
+                        ->where('isflag', '=', '1')
+                        ->pluck('problem_name', 'problem_id');
+    }
+
+    public function getPluckSubProblemCategory($problem_id) {
+        return $this->model
+                        ->where('problem_parent', '=', $problem_id)
+                        ->where('isflag', '=', '1')
+                        ->pluck('problem_name', 'problem_id');
     }
 
     /**
@@ -74,7 +115,7 @@ class WebProblemCategoryRepository {
      * 取得問題類別
      * @return type
      */
-    public function getPluckProblemCategory() {
+    public function getPluckProblemCategoryQQ() {
         return $this->model->where('problem_parent', '')->where('isflag', '1')->pluck('problem_name', 'problem_id');
     }
 
@@ -83,7 +124,7 @@ class WebProblemCategoryRepository {
      * @param type $parent_id
      * @return type
      */
-    public function getPluckSubProblemCategory($parent_id) {
+    public function getPluckSubProblemCategoryQQ($parent_id) {
         if (isset($parent_id)) {
             return $this->model->where('problem_parent', $parent_id)->where('isflag', '1')->pluck('problem_name', 'problem_id');
         }

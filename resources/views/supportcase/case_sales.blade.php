@@ -13,28 +13,32 @@ $title = "設定負責業務";
     </div>
     <div class="panel-body">
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_search">
-            {{ Form::open(['action'=>'ViewControllers\SupportCaseQueryController@detailActionSales','class'=>'navbar-form navbar-left']) }}
+
+            {{ Form::open(['action'=>'ViewControllers\SupportCase\SupportCaseSalesController@supportCaseSales','class'=>'navbar-form navbar-left','method'=>'POST']) }}
+            {{ Form::hidden('actiontype', 'search') }}
             {{ Form::hidden('support_id', $support_id) }}
             {{ Form::text('querycondition' , isset($querycondition) ? $querycondition : '',['class'=>'form-control']  ) }}
-
             {{ Form::button('查詢',['name' => 'submit','type'=>'submit' ,'class'=>'btn btn-info' ,'value'=>'search']) }}
             {{ Form::close() }}
-            {{ Form::open(['action' => array('ViewControllers\SupportCaseController@supportCaseDetail'),'class'=>'return_case_detail']) }}
+
+            {{ Form::button('確認',['name' => 'form_send_check' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'confirm']) }}
+
+            {{ Form::open(['action' => array('ViewControllers\SupportCase\SupportCaseDetailController@supportCaseDetail')]) }}
             {{ Form::hidden('support_id', $support_id) }}
-            {{ Form::button('返回',['type'=>'submit' ,'class'=>'btn btn-info navbar-right nav_select']) }}
+            {{ Form::submit('返回',['name' => 'back' ,'class'=>'btn btn-info navbar-right nav_select']) }} 
             {{ Form::close() }}
-            {{ Form::button('確認',['name' => 'form_send_check' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'form_send_check']) }}
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_ex">
             <div class="col-md-6 col-sm-6 col-xs-6">業務名稱</div>
             <div class="col-md-6 col-sm-6 col-xs-6">部門名稱</div>
         </div>
         @foreach ($saleslist as $case)
-        {{ Form::open(['action' => array('ViewControllers\SupportCaseQueryController@detailActionSales')]) }}
+        {{ Form::open(['action'=>'ViewControllers\SupportCase\SupportCaseSalesController@supportCaseSales','method'=>'POST']) }}
         <div class="case_setting_detail col-md-12 col-sm-12 col-xs-12">
-            {{ Form::hidden('cd_id', $case->ud_id) }}
+            {{ Form::hidden('actiontype', 'save') }}
             {{ Form::hidden('support_id', $support_id) }}
-            {{ Form::hidden('type', 'save') }}
+            {{ Form::hidden('querycondition',  isset($querycondition) ? $querycondition : '') }}
+            {{ Form::hidden('ud_id', $case->ud_id) }}
             {{ Form::hidden('password', 'password') }}
             <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->ud_cname }}</div>
             <div class="col-md-6 col-sm-6 col-xs-6">{{ $case->dep_ch }}</div>
@@ -61,7 +65,10 @@ $title = "設定負責業務";
         </div>
     </div>
     <div class="case_setting_foot panel-footer panel-info">
+
     </div>
 </div>
-
+@if($errors->any())
+<h4>{{$errors->first()}}</h4>
+@endif
 @endsection

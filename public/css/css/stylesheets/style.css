@@ -29,65 +29,69 @@
     transform: rotateZ(-10deg);
   }
 }
-/* line 89, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 body {
   font-family: 'Noto Sans TC','Josefin Sans', sans-serif;
 }
-/* line 91, ../sass/style.scss */
+/* line 89, ../sass/style.scss */
 body h1 {
   font-size: 25px;
 }
-/* line 92, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 body h2 {
   font-size: 20px;
 }
-/* line 93, ../sass/style.scss */
+/* line 91, ../sass/style.scss */
 body h3 {
   font-size: 16px;
 }
-/* line 94, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 body p {
   font-size: 14px;
 }
-/* line 95, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 body span {
   font-size: 14px;
 }
-/* line 52, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 body .j_holiday h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 100, ../sass/style.scss */
-body .j_holiday .panel-body .btn_left, body .j_holiday .panel-body .btn_right {
-  font-size: 34px;
-  cursor: pointer;
-}
-/* line 107, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix {
-  margin-top: 10px;
+  margin-top: 15px;
 }
-/* line 109, ../sass/style.scss */
+/* line 100, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix .week_group {
   border: 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
 }
-/* line 111, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix .week_group .week_days {
   padding: 10px !important;
   background-image: linear-gradient(to bottom, #999 0, #333 100%);
   border: 1px solid #aaa;
   color: #eeeeee;
 }
-/* line 118, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .week_group .week_days:first-child {
+  border-radius: 5px 0 0 0;
+}
+/* line 111, ../sass/style.scss */
+body .j_holiday .panel-body .clearfix .week_group .week_days:last-child {
+  border-radius: 0 5px 0 0;
+}
+/* line 115, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix .week_group h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 124, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .check_password_dis {
   display: none;
 }
-/* line 127, ../sass/style.scss */
+/* line 124, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box {
   background-color: rgba(50, 50, 50, 0.9);
   width: 100vw;
@@ -100,7 +104,7 @@ body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box {
   margin: auto;
   z-index: 9999;
 }
-/* line 138, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password {
   box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
   border-radius: 5px;
@@ -115,80 +119,83 @@ body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check
   bottom: 0;
   margin: auto;
 }
-/* line 151, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password h3 {
   margin-top: 0;
   text-align: left;
   color: #222222 !important;
 }
-/* line 156, ../sass/style.scss */
+/* line 153, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .show_box .check_password button {
   margin: 20px 5px 0 5px;
 }
-/* line 161, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group {
   margin-top: 15px;
 }
-/* line 163, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .btn_dis {
   display: none;
 }
-/* line 166, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .cancel_check, body .j_holiday .panel-body .clearfix form[name="holiday_form"] .btn_group .reset_check {
   margin-right: 15px;
 }
-/* line 170, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group {
   border: 1px solid #aaa;
 }
-/* line 172, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_1 {
   margin-left: 14.28571%;
 }
-/* line 175, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_2 {
   margin-left: 28.57143%;
 }
-/* line 178, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_3 {
   margin-left: 42.85714%;
 }
-/* line 181, ../sass/style.scss */
+/* line 178, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_4 {
   margin-left: 57.14286%;
 }
-/* line 184, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_5 {
   margin-left: 71.42857%;
 }
-/* line 187, ../sass/style.scss */
+/* line 184, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group .m_l_6 {
   margin-left: 85.71429%;
 }
-/* line 191, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting div {
   cursor: pointer;
 }
-/* line 194, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting .select_day.set_holiday {
   background-color: #ffffff;
   color: #222222;
+  font-weight: 400;
 }
-/* line 198, ../sass/style.scss */
+/* line 196, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group.editting .select_day {
   background-color: #FCEBF1;
   color: #D0104C;
+  font-weight: 700;
 }
-/* line 203, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group div {
   border: 1px solid #aaa;
   font-size: 30px;
   text-align: left;
 }
-/* line 207, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group div.set_holiday {
   background-color: #FCEBF1;
   color: #D0104C;
+  font-weight: 700;
 }
 /* line 212, ../sass/style.scss */
 body .j_holiday .panel-body .clearfix form[name="holiday_form"] .day_group span {
@@ -272,24 +279,7 @@ body .survey_form_style .survey_form .btn_style {
   text-align: center;
   padding-right: 30px;
 }
-/* line 280, ../sass/style.scss */
-body .survey_form_style .survey_form button {
-  padding-left: 30px;
-  padding-right: 30px;
-  background-image: linear-gradient(to bottom, #08aaf1 0, #0B346E 100%);
-  color: #ffffff;
-}
 /* line 284, ../sass/style.scss */
-body .survey_form_style .survey_form button:hover {
-  background-image: linear-gradient(to bottom, #999 0, #333 100%);
-  color: #ffffff;
-}
-/* line 288, ../sass/style.scss */
-body .survey_form_style .survey_form button:active {
-  background-image: none;
-  background-color: #08aaf1;
-}
-/* line 297, ../sass/style.scss */
 body .login_page .form_signin {
   max-width: 330px;
   padding: 30px !important;
@@ -297,25 +287,25 @@ body .login_page .form_signin {
   background-color: #eeeeee;
   border-radius: 5px;
 }
-/* line 52, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 body .login_page .form_signin h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 304, ../sass/style.scss */
+/* line 291, ../sass/style.scss */
 body .login_page .form_signin h1 {
   text-align: center;
 }
-/* line 307, ../sass/style.scss */
+/* line 294, ../sass/style.scss */
 body .login_page .form_signin .form_signin_heading {
   margin-bottom: 10px;
 }
-/* line 310, ../sass/style.scss */
+/* line 297, ../sass/style.scss */
 body .login_page .form_signin .checkbox {
   margin-bottom: 10px;
   font-weight: normal;
 }
-/* line 314, ../sass/style.scss */
+/* line 301, ../sass/style.scss */
 body .login_page .form_signin .form-control {
   position: relative;
   height: auto;
@@ -325,56 +315,60 @@ body .login_page .form_signin .form-control {
   padding: 10px !important;
   font-size: 16px;
 }
-/* line 322, ../sass/style.scss */
+/* line 309, ../sass/style.scss */
 body .login_page .form_signin .form-control:focus {
   z-index: 2;
 }
-/* line 326, ../sass/style.scss */
+/* line 313, ../sass/style.scss */
 body .login_page .form_signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-/* line 331, ../sass/style.scss */
+/* line 318, ../sass/style.scss */
 body .login_page .form_signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-/* line 339, ../sass/style.scss */
+/* line 326, ../sass/style.scss */
 body .case_setting_content {
   box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
 }
-/* line 52, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 body .case_setting_content .panel-heading .case_setting_title h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 346, ../sass/style.scss */
+/* line 333, ../sass/style.scss */
 body .case_setting_content .panel-body {
   padding: 0px !important;
 }
-/* line 348, ../sass/style.scss */
+/* line 335, ../sass/style.scss */
+body .case_setting_content .panel-body .sort_check {
+  cursor: pointer;
+}
+/* line 338, ../sass/style.scss */
 body .case_setting_content .panel-body #extendForm, body .case_setting_content .panel-body #closeForm {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 352, ../sass/style.scss */
+/* line 342, ../sass/style.scss */
 body .case_setting_content .panel-body .position_ab {
   position: absolute;
   right: 0;
   top: -1px;
 }
-/* line 357, ../sass/style.scss */
+/* line 347, ../sass/style.scss */
 body .case_setting_content .panel-body .return_case_detail {
   float: right;
   margin-bottom: 0px !important;
 }
-/* line 361, ../sass/style.scss */
+/* line 351, ../sass/style.scss */
 body .case_setting_content .panel-body .nav_select {
   margin: 8px 5px;
 }
-/* line 364, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 body .case_setting_content .panel-body label {
   font-weight: 400;
   padding-top: 5px;
@@ -387,7 +381,7 @@ body .case_setting_content .panel-body label {
   transform-origin: 38px 40px;
   transform: rotateZ(-10deg);
 }
-/* line 373, ../sass/style.scss */
+/* line 363, ../sass/style.scss */
 body .case_setting_content .panel-body label:before {
   content: "";
   position: absolute;
@@ -399,82 +393,82 @@ body .case_setting_content .panel-body label:before {
   border-width: 10px 5px 0px 5px;
   border-top-color: #08aaf1;
 }
-/* line 384, ../sass/style.scss */
+/* line 374, ../sass/style.scss */
 body .case_setting_content .panel-body label:hover {
   background-color: #d96c40;
   animation: rotateZ .3s;
 }
-/* line 387, ../sass/style.scss */
+/* line 377, ../sass/style.scss */
 body .case_setting_content .panel-body label:hover:before {
   border-top-color: #d96c40;
 }
-/* line 391, ../sass/style.scss */
+/* line 381, ../sass/style.scss */
 body .case_setting_content .panel-body label.hover {
   background-color: #d96c40 !important;
   animation: rotateZ .3s;
 }
-/* line 394, ../sass/style.scss */
+/* line 384, ../sass/style.scss */
 body .case_setting_content .panel-body label.hover:before {
   border-top-color: #d96c40 !important;
 }
-/* line 399, ../sass/style.scss */
+/* line 389, ../sass/style.scss */
 body .case_setting_content .panel-body .tooltip-inner {
   background-color: #d96c40;
 }
-/* line 402, ../sass/style.scss */
+/* line 392, ../sass/style.scss */
 body .case_setting_content .panel-body .tooltip-arrow {
   border-top-color: #d96c40;
 }
-/* line 406, ../sass/style.scss */
+/* line 396, ../sass/style.scss */
 body .case_setting_content .panel-body .error input, body .case_setting_content .panel-body .error textarea, body .case_setting_content .panel-body .error select {
   background-color: #fee;
   border-color: #e99;
 }
-/* line 411, ../sass/style.scss */
+/* line 401, ../sass/style.scss */
 body .case_setting_content .panel-body a {
   color: #222222;
 }
-/* line 413, ../sass/style.scss */
+/* line 403, ../sass/style.scss */
 body .case_setting_content .panel-body a.btn {
   color: #ffffff;
 }
-/* line 417, ../sass/style.scss */
+/* line 407, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_ex {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
   background-color: #eeeeee;
 }
-/* line 422, ../sass/style.scss */
+/* line 412, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_detail {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
   border-top: 1px solid #dddddd;
 }
-/* line 426, ../sass/style.scss */
+/* line 416, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_detail:hover {
   background-color: #81C1EF;
   color: #ffffff;
 }
-/* line 430, ../sass/style.scss */
+/* line 420, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_detail.click_select {
   background-color: #3D8AD4 !important;
   color: #ffffff;
 }
-/* line 434, ../sass/style.scss */
+/* line 424, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_detail .save_btn_dis {
   display: none;
 }
-/* line 437, ../sass/style.scss */
+/* line 427, ../sass/style.scss */
 body .case_setting_content .panel-body .case_setting_detail .btn-xs {
   padding: 0 5px;
 }
-/* line 442, ../sass/style.scss */
+/* line 432, ../sass/style.scss */
 body .case_setting_content .check_password_dis {
   display: none;
 }
-/* line 445, ../sass/style.scss */
+/* line 435, ../sass/style.scss */
 body .case_setting_content .show_box {
   background-color: rgba(50, 50, 50, 0.9);
   width: 100vw;
@@ -487,7 +481,7 @@ body .case_setting_content .show_box {
   margin: auto;
   z-index: 9999;
 }
-/* line 457, ../sass/style.scss */
+/* line 447, ../sass/style.scss */
 body .case_setting_content .check_password {
   box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
   border-radius: 5px;
@@ -502,45 +496,45 @@ body .case_setting_content .check_password {
   bottom: 0;
   margin: auto;
 }
-/* line 470, ../sass/style.scss */
+/* line 460, ../sass/style.scss */
 body .case_setting_content .check_password h3 {
   margin-top: 0;
   text-align: left;
   color: #222222 !important;
 }
-/* line 475, ../sass/style.scss */
+/* line 465, ../sass/style.scss */
 body .case_setting_content .check_password button {
   margin: 20px 5px 0 5px;
 }
-/* line 478, ../sass/style.scss */
+/* line 468, ../sass/style.scss */
 body .case_setting_content .check_password .sales_plz {
   text-align: center;
 }
-/* line 480, ../sass/style.scss */
+/* line 470, ../sass/style.scss */
 body .case_setting_content .check_password .sales_plz h3 {
   text-align: center;
 }
-/* line 484, ../sass/style.scss */
+/* line 474, ../sass/style.scss */
 body .case_setting_content .check_password .check_error_dis {
   display: none;
 }
-/* line 487, ../sass/style.scss */
+/* line 477, ../sass/style.scss */
 body .case_setting_content .check_password .password_plz {
   text-align: center;
 }
-/* line 490, ../sass/style.scss */
+/* line 480, ../sass/style.scss */
 body .case_setting_content .check_password .check_success_dis {
   display: none;
 }
-/* line 494, ../sass/style.scss */
+/* line 484, ../sass/style.scss */
 body .case_setting_content .case_setting_foot {
   background-color: #d9edf7;
 }
-/* line 496, ../sass/style.scss */
+/* line 486, ../sass/style.scss */
 body .case_setting_content .case_setting_foot .check_case_dis {
   display: none;
 }
-/* line 499, ../sass/style.scss */
+/* line 489, ../sass/style.scss */
 body .case_setting_content .case_setting_foot .wrap {
   background-color: rgba(200, 200, 200, 0.5);
   width: 100vw;
@@ -552,7 +546,7 @@ body .case_setting_content .case_setting_foot .wrap {
   bottom: 0;
   margin: auto;
 }
-/* line 510, ../sass/style.scss */
+/* line 500, ../sass/style.scss */
 body .case_setting_content .case_setting_foot .check_case {
   box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
   border-radius: 5px;
@@ -567,58 +561,58 @@ body .case_setting_content .case_setting_foot .check_case {
   bottom: 0;
   margin: auto;
 }
-/* line 523, ../sass/style.scss */
+/* line 513, ../sass/style.scss */
 body .case_setting_content .case_setting_foot .check_case h3 {
   margin-top: 0;
 }
-/* line 526, ../sass/style.scss */
+/* line 516, ../sass/style.scss */
 body .case_setting_content .case_setting_foot .check_case label {
   margin-top: 20px;
 }
-/* line 530, ../sass/style.scss */
+/* line 520, ../sass/style.scss */
 body .case_setting_content .case_setting_foot form {
   margin-bottom: 0;
 }
-/* line 532, ../sass/style.scss */
+/* line 522, ../sass/style.scss */
 body .case_setting_content .case_setting_foot form label, body .case_setting_content .case_setting_foot form button {
   padding-left: 15px;
   padding-right: 15px;
   margin: 5px 10px 5px 0;
 }
-/* line 535, ../sass/style.scss */
+/* line 525, ../sass/style.scss */
 body .case_setting_content .case_setting_foot form label input, body .case_setting_content .case_setting_foot form button input {
   display: none;
 }
-/* line 543, ../sass/style.scss */
+/* line 533, ../sass/style.scss */
 body .j_form_style {
   padding-top: 50px;
 }
-/* line 545, ../sass/style.scss */
+/* line 535, ../sass/style.scss */
 body .j_form_style img {
   width: 100%;
   cursor: pointer;
 }
-/* line 549, ../sass/style.scss */
+/* line 539, ../sass/style.scss */
 body .j_form_style .dis_style {
   display: none;
 }
-/* line 552, ../sass/style.scss */
+/* line 542, ../sass/style.scss */
 body .j_form_style .j_title {
   color: #222222;
   margin-top: 15px;
   margin-bottom: 25px;
 }
-/* line 557, ../sass/style.scss */
+/* line 547, ../sass/style.scss */
 body .j_form_style .j_form {
   box-shadow: 0px 0px 10px rgba(15, 37, 64, 0.6);
   border-radius: 5px 5px 0 0;
   padding: 30px 0 15px 0;
 }
-/* line 561, ../sass/style.scss */
+/* line 551, ../sass/style.scss */
 body .j_form_style .j_form .form-control:focus {
   border-color: #fff;
 }
-/* line 564, ../sass/style.scss */
+/* line 554, ../sass/style.scss */
 body .j_form_style .j_form label {
   font-weight: 400;
   padding-top: 5px;
@@ -631,7 +625,7 @@ body .j_form_style .j_form label {
   transform-origin: 38px 40px;
   transform: rotateZ(-10deg);
 }
-/* line 573, ../sass/style.scss */
+/* line 563, ../sass/style.scss */
 body .j_form_style .j_form label:before {
   content: "";
   position: absolute;
@@ -643,70 +637,54 @@ body .j_form_style .j_form label:before {
   border-width: 10px 5px 0px 5px;
   border-top-color: #08aaf1;
 }
-/* line 584, ../sass/style.scss */
+/* line 574, ../sass/style.scss */
 body .j_form_style .j_form label:hover {
   background-color: #d96c40;
   animation: rotateZ .3s;
 }
-/* line 587, ../sass/style.scss */
+/* line 577, ../sass/style.scss */
 body .j_form_style .j_form label:hover:before {
   border-top-color: #d96c40;
 }
-/* line 592, ../sass/style.scss */
+/* line 582, ../sass/style.scss */
 body .j_form_style .j_form label.hover {
   background-color: #d96c40 !important;
   animation: rotateZ .3s;
 }
-/* line 595, ../sass/style.scss */
+/* line 585, ../sass/style.scss */
 body .j_form_style .j_form label.hover:before {
   border-top-color: #d96c40 !important;
 }
-/* line 599, ../sass/style.scss */
+/* line 589, ../sass/style.scss */
 body .j_form_style .j_form input, body .j_form_style .j_form select, body .j_form_style .j_form textarea {
   border-color: #ffffff;
   box-shadow: 0px 0px 10px 2px rgba(15, 37, 64, 0.3) inset;
   background-color: #eeeeee;
 }
-/* line 604, ../sass/style.scss */
+/* line 594, ../sass/style.scss */
 body .j_form_style .j_form h3 {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 3px solid #dddddd;
 }
-/* line 609, ../sass/style.scss */
+/* line 599, ../sass/style.scss */
 body .j_form_style .j_form .tooltip-inner {
   background-color: #d96c40;
 }
-/* line 612, ../sass/style.scss */
+/* line 602, ../sass/style.scss */
 body .j_form_style .j_form .tooltip-arrow {
   border-top-color: #d96c40;
 }
-/* line 616, ../sass/style.scss */
+/* line 606, ../sass/style.scss */
 body .j_form_style .j_form .error input, body .j_form_style .j_form .error textarea, body .j_form_style .j_form .error select {
   background-color: #fee;
   border-color: #e99;
 }
-/* line 621, ../sass/style.scss */
+/* line 611, ../sass/style.scss */
 body .j_form_style .j_form .btn_p_r_b {
   padding: 15px 30px 15px 15px;
 }
-/* line 623, ../sass/style.scss */
-body .j_form_style .j_form .btn_p_r_b button {
-  background-image: linear-gradient(to bottom, #08aaf1 0, #0B346E 100%);
-  color: #ffffff;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-/* line 627, ../sass/style.scss */
-body .j_form_style .j_form .btn_p_r_b button:hover {
-  background-image: linear-gradient(to bottom, #999 0, #333 100%);
-}
-/* line 630, ../sass/style.scss */
-body .j_form_style .j_form .btn_p_r_b button:active {
-  background-image: none;
-  background-color: #08aaf1;
-}
-/* line 640, ../sass/style.scss */
+/* line 618, ../sass/style.scss */
 body #des > div {
   padding: 30px !important;
   border-radius: 0 0 5px 5px;
@@ -714,48 +692,56 @@ body #des > div {
   background-color: #dddddd;
   margin-bottom: 30px;
 }
-/* line 647, ../sass/style.scss */
+/* line 625, ../sass/style.scss */
 body #des p {
   padding-left: 15px;
 }
-/* line 652, ../sass/style.scss */
+/* line 630, ../sass/style.scss */
 body .p_l_r {
   padding-left: 15px;
   padding-right: 15px;
 }
-/* line 655, ../sass/style.scss */
+/* line 633, ../sass/style.scss */
 body .p_l_r_dis {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 658, ../sass/style.scss */
+/* line 636, ../sass/style.scss */
 body .p_all_dis {
   padding: 0px !important;
 }
-/* line 661, ../sass/style.scss */
+/* line 639, ../sass/style.scss */
 body .p_t {
   padding-top: 3px;
 }
-/* line 664, ../sass/style.scss */
+/* line 642, ../sass/style.scss */
 body .m_b {
   margin-bottom: 20px;
 }
+/* line 645, ../sass/style.scss */
+body .dis_none {
+  display: none;
+}
+/* line 648, ../sass/style.scss */
+body .separation_line {
+  margin-top: 20px;
+}
 @media only screen and (min-width: 768px) {
-  /* line 669, ../sass/style.scss */
+  /* line 653, ../sass/style.scss */
   body .p_r {
     padding-right: 30px;
   }
-  /* line 672, ../sass/style.scss */
+  /* line 656, ../sass/style.scss */
   body .p_l {
     padding-left: 30px;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 677, ../sass/style.scss */
+  /* line 661, ../sass/style.scss */
   body .j_form_style, body #des, body .survey_form_style {
     padding: 0px !important;
   }
-  /* line 680, ../sass/style.scss */
+  /* line 664, ../sass/style.scss */
   body .btn_right, body .btn_left {
     padding-left: 0;
     padding-right: 0;

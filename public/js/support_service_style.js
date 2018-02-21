@@ -1,30 +1,32 @@
 $(function(){
 	// bootstrap tooltip
 	$('[data-toggle="tooltip"]').tooltip();
+
 	$('#pg_id').change(function () {
-    var token = $("input[name='_token']").val();
-    var aa = $("option:selected").val();
+    var aa = $(this).find(":selected").val();
     var ww = JSON.parse(window.sessionStorage["productlist"]);
-
-    // console.log(ww[aa]);
-
     $("#pd_id option").remove();
-    if($('#pd_id option').length ==0){
-				$('#pd_id').parent('div').addClass('dis_style');
-				$('#pd_id').attr("disabled",true);
-			}else{
-				$('#pd_id').parents('div').removeClass('dis_style');
-				$('#pd_id').attr("disabled",false);
-			}
     $.each(ww[aa], function (i) {
         $("#pd_id").append($("<option></option>").attr("value", i).text(ww[aa][i]));
     });
     if($('#pd_id option').length ==0){
-				$('#pd_id').parent('div').addClass('dis_style');
 				$('#pd_id').attr("disabled",true);
 			}else{
-				$('#pd_id').parents('div').removeClass('dis_style');
 				$('#pd_id').attr("disabled",false);
+			}
+  })
+
+  $('#problem_parent').change(function () {
+    var bb = $(this).find(":selected").val();
+    var qq = JSON.parse(window.sessionStorage["problemsublist"]);
+    $("#problem_id option").remove();
+    $.each(qq[bb], function (i) {
+        $("#problem_id").append($("<option></option>").attr("value", i).text(qq[bb][i]));
+    });
+    if($('#problem_id option').length ==0|| $('#problem_id option').text()==""){
+				$('#problem_id').attr("disabled",true);
+			}else{
+				$('#problem_id').attr("disabled",false);
 			}
   })
 
@@ -42,7 +44,7 @@ $(function(){
       // 使用 trim 把空白去除
       if ($.trim($this.val()).length === 0){
       	if ($this.attr("type") == "file"){
-      	}else if($(this).attr('id')=='pd_id'){
+      	}else if($(this).attr('id')=='pd_id' || $(this).attr('id')=='contact_carboncopy'){
 
       	}else{
       		$this.tooltip('show').closest('div').addClass('error');

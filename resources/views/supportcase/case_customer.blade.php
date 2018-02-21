@@ -12,17 +12,19 @@ $title = "設定客戶連結";
     </div>
     <div class="panel-body">
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_search">
-            {{ Form::open(['action'=>'ViewControllers\SupportCaseQueryController@detailActionCustomer','class'=>'navbar-form navbar-left']) }}
+            {{ Form::open(['action'=>'ViewControllers\SupportCase\SupportCaseCustomerController@supportCaseCustomer','class'=>'navbar-form navbar-left']) }}
+            {{ Form::hidden('actiontype', 'search') }}
             {{ Form::hidden('support_id', $support_id) }}
             {{ Form::text('querycondition' , isset($querycondition) ? $querycondition : '',['class'=>'form-control']  ) }}
             {{ Form::button('查詢',['name' => 'submit','type'=>'submit' ,'class'=>'btn btn-info' ,'value'=>'search']) }}
             {{ Form::close() }}
-            {{ Form::open(['action' => array('ViewControllers\SupportCaseController@supportCaseDetail'),'class'=>'return_case_detail']) }}
-            {{ Form::hidden('support_id', $support_id) }}
-            {{ Form::button('返回',['type'=>'submit' ,'class'=>'btn btn-info navbar-right nav_select']) }}
-            {{ Form::close() }}
-            {{ Form::button('確認',['name' => 'form_send_check' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'form_send_check']) }}
 
+            {{ Form::button('確認',['name' => 'form_send_check' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'form_send_check']) }}
+            
+            {{ Form::open(['action' => array('ViewControllers\SupportCase\SupportCaseDetailController@supportCaseDetail')]) }}
+            {{ Form::hidden('support_id', $support_id) }}
+            {{ Form::submit('返回',['name' => 'back' ,'class'=>'btn btn-info navbar-right nav_select' ,'value'=>'back']) }} 
+            {{ Form::close() }}
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 case_setting_ex">
             <div class="col-md-3 col-sm-3 col-xs-3">公司名稱</div>
@@ -31,17 +33,18 @@ $title = "設定客戶連結";
             <div class="col-md-5 col-sm-5 col-xs-5">公司地址</div>
         </div>
         @foreach ($customerlist as $case)
-        {{ Form::open(['action' => array('ViewControllers\SupportCaseQueryController@detailActionCustomer'),'id'=> 'form'.$case->cd_id]) }}
-            <div class="case_setting_detail col-md-12 col-sm-12 col-xs-12">
-                {{ Form::hidden('cd_id', $case->cd_id) }}
-                {{ Form::hidden('support_id', $support_id) }}
-                {{ Form::hidden('type', 'save') }}
-                {{ Form::hidden('password', 'password') }}
-                <div class="col-md-3 col-sm-3 col-xs-3">{{ $case->cd_full_cname }}</div>
-                <div class="col-md-2 col-sm-2 col-xs-2">{{ $case->cd_phone }}</div>
-                <div class="col-md-2 col-sm-2 col-xs-2">{{ $case->cd_rcp_no }}</div>
-                <div class="col-md-5 col-sm-5 col-xs-5">{{ $case->areacode }} {{ $case->cd_company_caddr }}</div>
-            </div>
+        {{ Form::open(['action' => array('ViewControllers\SupportCase\SupportCaseCustomerController@supportCaseCustomer'),'id'=> 'form'.$case->cd_id]) }}
+        <div class="case_setting_detail col-md-12 col-sm-12 col-xs-12">
+            {{ Form::hidden('actiontype', 'save') }}
+            {{ Form::hidden('support_id', $support_id) }}
+            {{ Form::hidden('querycondition',  isset($querycondition) ? $querycondition : '') }}
+            {{ Form::hidden('cd_id', $case->cd_id) }}
+            {{ Form::hidden('password', 'password') }}
+            <div class="col-md-3 col-sm-3 col-xs-3">{{ $case->cd_full_cname }}</div>
+            <div class="col-md-2 col-sm-2 col-xs-2">{{ $case->cd_phone }}</div>
+            <div class="col-md-2 col-sm-2 col-xs-2">{{ $case->cd_rcp_no }}</div>
+            <div class="col-md-5 col-sm-5 col-xs-5">{{ $case->areacode }} {{ $case->cd_company_caddr }}</div>
+        </div>
         {{ Form::close() }}
         @endforeach
     </div>
@@ -66,4 +69,7 @@ $title = "設定客戶連結";
     <div class="case_setting_foot panel-footer panel-info">
     </div>
 </div>
+@if($errors->any())
+<h4>{{$errors->first()}}</h4>
+@endif
 @endsection

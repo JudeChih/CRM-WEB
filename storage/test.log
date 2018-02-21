@@ -1,0 +1,7 @@
+
+                                                                               
+  [ErrorException]                                                             
+  file_put_contents(D:\laravel\CRM-WEB\storage\test.log): failed to open stre  
+  am: Permission denied                                                        
+                                                                               
+

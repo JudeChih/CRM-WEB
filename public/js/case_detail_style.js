@@ -1,7 +1,7 @@
 $(function(){
 	$('.case_setting_foot button').on('click',function(){
 		$('.wrap').removeClass('check_case_dis');
-		$(".check_case label").addClass('check_case_dis');
+		//$(".check_case label").addClass('check_case_dis');
 		var btn_name = $(this).data('name');
 		console.log(btn_name);
 		$(".check_case label input[value='"+btn_name+"']").parent('label').removeClass('check_case_dis');

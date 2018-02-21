@@ -12,8 +12,13 @@ class CrmCustomerSaleRelationRepository {
      */
     protected $model;
 
-    public function __construct(CrmCustomerSaleRelation $model) {
-        $this->model = $model;
+    public function __construct(CrmCustomerSaleRelation $model = null) {
+
+        if (isset($model)) {
+            $this->model = $model;
+        }
+
+        $this->model = new CrmCustomerSaleRelation();
     }
 
     /**
@@ -39,6 +44,44 @@ class CrmCustomerSaleRelationRepository {
      */
     public function getData($primarykey) {
         return $this->model->find($primarykey);
+    }
+
+    /**
+     * 使用「$cd_id 客戶代碼」取得 客戶 負責業務郵件陣列
+     * @param type $cd_id 客戶代碼
+     * @return type
+     */
+    public function getSalesMailArrayByCd_ID($cd_id) {
+
+        $result = $this->model
+                ->join('CrmUserData', 'CrmUserData.ud_id', '=', 'CrmCustomerSaleRelation.sd_id')
+                ->where('CrmUserData.isflag', '=', '1')
+                ->where('CrmCustomerSaleRelation.cd_id', '=', $cd_id)
+                ->where('CrmCustomerSaleRelation.sr_type', '=', '1')
+                ->get();
+
+        if (!isset($result) || count($result) == 0) {
+
+            $query = $this->model
+                            ->join('CrmUserData', 'CrmUserData.ud_id', '=', 'CrmCustomerSaleRelation.sd_id')
+                            ->where('CrmUserData.isflag', '=', '1')
+                            ->where('CrmCustomerSaleRelation.cd_id', '=', $cd_id)
+                            ->where('CrmCustomerSaleRelation.sr_type', '=', '1')->toSql();
+            echo $query;
+            echo $cd_id;
+            echo 'wwww<br>';
+            return null;
+        }
+
+        $emails = [];
+        foreach ($result as $sales) {
+
+            if (isset($sales->ud_email) && strlen($sales->ud_email) != 0) {
+                $emails[] = $sales->ud_email;
+            }
+        }
+
+        return $emails;
     }
 
     /**

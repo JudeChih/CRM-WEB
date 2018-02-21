@@ -12,8 +12,11 @@ class CrmCustomerContactRepository {
      */
     protected $model;
 
-    public function __construct(CrmCustomerContact $model) {
-        $this->model = $model;
+    public function __construct(CrmCustomerContact $model = null) {
+        if (isset($model)) {
+            $this->model = $model;
+        }
+        $this->model = new CrmCustomerContact();
     }
 
     /**
@@ -39,6 +42,19 @@ class CrmCustomerContactRepository {
      */
     public function getData($primarykey) {
         return $this->model->find($primarykey);
+    }
+
+    /**
+     * 使用「$cc_email 聯絡人電子郵件」查詢資料
+     * @param type $cc_email 聯絡人電子郵件
+     * @return type
+     */
+    public function getDataByCCEmail($cc_email) {
+        return $this->model
+                        ->where('cc_state', '=', '1')
+                        ->where('isflag', '=', '1')
+                        ->where('cc_email', '=', $cc_email)
+                        ->first();
     }
 
     /**

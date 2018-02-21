@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\CrmUserData;
+use DB;
 
 class CrmUserDataRepository {
 
@@ -39,6 +40,16 @@ class CrmUserDataRepository {
      */
     public function getData($primarykey) {
         return $this->model->find($primarykey);
+    }
+
+    /**
+     * 使用「$ud_nick、$ud_pass」取得使用者資料
+     * @param type $ud_nick 使用者帳號
+     * @param type $ud_pass 使用者密碼
+     * @return type 使用者資料
+     */
+    public function getDataByNickPass($ud_nick, $ud_pass) {
+        return $this->model->where('ud_nick', '=', $ud_nick)->where('ud_pass', '=', $ud_pass)->orderBy('ud_id')->first();
     }
 
     /**
@@ -125,6 +136,59 @@ class CrmUserDataRepository {
      */
     public function delete($primarykey) {
         return null;
+    }
+
+    /**
+     * 檢查使用者密碼
+     * @param type $password 輸入的密碼
+     * @return boolean
+     */
+    public static function checkUserPasswordQ($password) {
+        return true;
+    }
+
+    /**
+     * 檢查該密碼是否正確
+     * @param type $ud_id 使用者代碼
+     * @param type $password 使用者密碼
+     * @return boolean
+     */
+    public static function checkUserPassword($ud_id, $password) {
+
+        $model = new \App\Models\CrmUserData();
+
+        $userdata = $model
+                ->where('CrmUserData.ud_id', '=', $ud_id)
+                ->where('CrmUserData.isflag', '=', '1')
+                ->whereNull('CrmUserData.ud_leave_date')
+                ->first();
+
+        if (!isset($userdata) || count($userdata) <= 0) {
+            return false;
+        }
+        if ($userdata->ud_pass != $password) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function checkUserPasswordQQ($ud_id, $password) {
+
+        $userdata = $this
+                ->where('CrmUserData.ud_id', '=', $ud_id)
+                ->where('CrmUserData.isflag', '=', '1')
+                ->whereNull('CrmUserData.ud_leave_date')
+                ->first();
+
+        if (!isset($userdata) || count($userdata) <= 0) {
+            return false;
+        }
+        if ($userdata->ud_pass != $password) {
+            return false;
+        }
+
+        return true;
     }
 
 }
